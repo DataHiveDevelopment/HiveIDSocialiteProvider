@@ -1,6 +1,4 @@
----
-title: "DataHive Development's Hive ID"
----
+# DataHive Development's Hive ID
 
 ## Quick Setup
 
