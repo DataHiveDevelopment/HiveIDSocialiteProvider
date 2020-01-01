@@ -1,18 +1,18 @@
 {
-    "name": "biohivetech/hiveidsocialiteprovider",
-    "description": "HiveID OAuth2 Provider for Laravel Socialite",
+    "name": "datahivedevelopment/hiveidsocialiteprovider",
+    "description": "Hive ID OAuth2 Provider for Laravel Socialite",
     "license": "MIT",
     "authors": [{
-        "name": "Dustin Schreiber (BioHive Tech)",
-        "email": "support@biohivetech.com"
+        "name": "Dustin Schreiber (DataHive Development)",
+        "email": "support@datahivedev.com"
     }],
     "require": {
-        "php": ">=5.5.9",
+        "php": "^7.2",
         "socialiteproviders/manager": "~2.0 || ~3.0"
     },
     "autoload": {
         "psr-4": {
-            "BioHiveTech\\HiveIDSocialiteProvider\\": "src/"
+            "DataHiveDevelopment\\HiveIDSocialiteProvider\\": "src/"
         }
     }
 }

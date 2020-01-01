@@ -1,6 +1,6 @@
 <?php
 
-namespace BioHiveTech\HiveIDSocialiteProvider;
+namespace DataHiveDevelopment\HiveIDSocialiteProvider;
 
 use SocialiteProviders\Manager\SocialiteWasCalled;
 

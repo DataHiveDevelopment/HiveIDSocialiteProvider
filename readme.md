@@ -1,11 +1,11 @@
 ---
-title: "BioHive Tech's Hive ID"
+title: "DataHive Development's Hive ID"
 ---
 
 ## Quick Setup
 
 ```bash
-composer require biohivetech/hiveidsocialiteprovider
+composer require datahivedevelopment/hiveidsocialiteprovider
 ```
 
 ### 1. Add to `providers[]` array in `config\app.php`
@@ -21,7 +21,7 @@ composer require biohivetech/hiveidsocialiteprovider
 ```php
 protected $listen = [
     \SocialiteProviders\Manager\SocialiteWasCalled::class => [
-        'BioHiveTech\\HiveIDSocialiteProvider\\HiveIDExtendSocialite@handle',
+        'DataHiveDevelopment\\HiveIDSocialiteProvider\\HiveIDExtendSocialite@handle',
     ],
 ];
 ```
@@ -43,7 +43,7 @@ protected $listen = [
 
 ```bash
 // This assumes that you have composer installed globally
-composer require biohivetech/hiveidsocialiteprovider
+composer require datahivedevelopment/hiveidsocialiteprovider
 ```
 
 ### 2. Service Provider
@@ -70,7 +70,7 @@ For example:
 
 * Add your listeners (i.e. the ones from the providers) to the `SocialiteProviders\Manager\SocialiteWasCalled[]` that you just created.
 
-* The listener that you add for this provider is `'BioHiveTech\\HiveIDSocialiteProvider\\HiveIDExtendSocialite@handle',`.
+* The listener that you add for this provider is `'DataHiveDevelopment\\HiveIDSocialiteProvider\\HiveIDExtendSocialite@handle',`.
 
 * Note: You do not need to add anything for the built-in socialite providers unless you override them with your own providers.
 
@@ -85,7 +85,7 @@ For example:
 protected $listen = [
     \SocialiteProviders\Manager\SocialiteWasCalled::class => [
         // add your listeners (aka providers) here
-        'BioHiveTech\\HiveIDSocialiteProvider\\HiveIDExtendSocialite@handle',
+        'DataHiveDevelopment\\HiveIDSocialiteProvider\\HiveIDExtendSocialite@handle',
     ],
 ];
 ```
@@ -112,7 +112,7 @@ You will need to add an entry to the services configuration file so that after c
 
 #### `Server` configuration value
 
-You can specify an optional `HIVEID_SERVER` in your .env file to override using the production Hive ID authentication system. This is most useful during development and needing to test a modification to Hive ID with another application. The value should be entered in the format of `http://account.test`, note the lack of a trailing `/`. `/oauth/authorize` and `/oauth/token` will automatically be appended on the appropriate routes.`
+You can specify an optional `HIVEID_SERVER` in your .env file to override using the production Hive ID authentication system. This is most useful during development and needing to test a modification to Hive ID with another application. The value should be entered in the format of `http://id.test`, note the lack of a trailing `/`. The `/oauth/authorize` and `/oauth/token` endpoints will automatically be appended on the appropriate API calls.
 
 ### 5. Usage
 

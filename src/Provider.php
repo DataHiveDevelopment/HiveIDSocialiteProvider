@@ -1,6 +1,6 @@
 <?php
 
-namespace BioHiveTech\HiveIDSocialiteProvider;
+namespace DataHiveDevelopment\HiveIDSocialiteProvider;
 
 use SocialiteProviders\Manager\OAuth2\AbstractProvider;
 use SocialiteProviders\Manager\OAuth2\User;
@@ -22,7 +22,7 @@ class Provider extends AbstractProvider
      */
     protected function getAuthUrl($state)
     {
-        return $this->buildAuthUrlFromBase(($this->config['server'] ?: 'https://account.biohivetech.com') . '/oauth/authorize', $state);
+        return $this->buildAuthUrlFromBase(($this->config['server'] ?: 'https://id.datahivedev.com') . '/oauth/authorize', $state);
     }
 
     /**
@@ -30,7 +30,7 @@ class Provider extends AbstractProvider
      */
     protected function getTokenUrl()
     {
-        return ($this->config['server'] ?: 'https://account.biohivetech.com') . '/oauth/token';
+        return ($this->config['server'] ?: 'https://id.datahivedev.com') . '/oauth/token';
     }
 
     /**
@@ -38,7 +38,7 @@ class Provider extends AbstractProvider
      */
     protected function getUserByToken($token)
     {
-        $response = $this->getHttpClient()->get(($this->config['server'] ?: 'https://account.biohivetech.com') . '/api/me', [
+        $response = $this->getHttpClient()->get(($this->config['server'] ?: 'https://id.datahivedev.com') . '/api/me', [
             'headers' => [
                 'Authorization' => 'Bearer '.$token,
             ],
@@ -53,11 +53,11 @@ class Provider extends AbstractProvider
     protected function mapUserToObject(array $user)
     {
         return (new User())->setRaw($user)->map([
-            'id'       => $user['uuid'],
-            'nickname' => $user['username'],
-            'name'     => ($user['name'] ?: null),
-            'email'    => ($user['email'] ?: null),
-            'avatar'   => $user['avatar'],
+            'id'         => $user['id'],
+            'nickname'   => $user['username'],
+            'name'       => $user['name'],
+            'email'      => ($user['email'] ?: null),
+            'avatar'     => ($user['photo'] ?: null),
         ]);
     }
 
